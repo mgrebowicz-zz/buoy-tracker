@@ -3,8 +3,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
+import FavoriteBuoysPage from '../FavoriteBuoysPage/FavoriteBuoysPage';
+import BuoyIndexPage from '../BuoyIndexPage/BuoyIndexPage';
 import NavBar from '../../components/NavBar/NavBar';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -32,13 +32,13 @@ export default function App() {
             <>         
               <NavBar user={user} setUser={setUser} />
               <Switch>
-                <Route path="/orders/new">
-                  <NewOrderPage />
+                <Route path="/buoys/add">
+                <FavoriteBuoysPage user={user} setUser={setUser} />
                 </Route>
-                <Route path="/orders">
-                  <OrderHistoryPage />
+                <Route path="/buoys">
+                  <BuoyIndexPage />
                 </Route>
-                <Redirect to="/orders" />
+                <Redirect to="/buoys" />
               </Switch>
             </>
           :

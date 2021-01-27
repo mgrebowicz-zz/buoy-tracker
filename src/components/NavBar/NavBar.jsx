@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    marginLeft: 0,
+    marginLeft: 1,
   },
 }));
 
@@ -110,11 +110,11 @@ export default function NavBar({ user, setUser }) {
               edge="start"
               className={clsx(classes.menuButton, open && classes.hide)}
             >
-              <MenuIcon />
+            <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
               Buoy Tracker
-          </Typography>
+            </Typography>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -142,7 +142,7 @@ export default function NavBar({ user, setUser }) {
                 activeStyle={{ 
                   color: 'yellow' 
                 }} 
-                to="/orders/new">New Order
+                to="/buoys/add">Favorites
               </NavLink>
             </ListItem>          
             <ListItem button>
@@ -154,7 +154,7 @@ export default function NavBar({ user, setUser }) {
                 activeStyle={{ 
                   color: 'yellow' 
                     }} 
-                to="/orders">Order History
+                to="/buoys">Buoy Index
               </NavLink>    
             </ListItem>          
             <ListItem button>
