@@ -1,3 +1,9 @@
+
+
 export default function FavoriteBuoysPage() {
-  return <h1>Favorite buoys</h1>
+  return (
+  <div>
+    <h1>Favorite buoys</h1>
+  </div>
+  )
 }
