@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
+import Button from '@material-ui/core/Button'
+import { FormControl } from '@material-ui/core';
+import InputLabel from '@material-ui/core/InputLabel';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 
 export default function LogIn({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -30,12 +34,36 @@ export default function LogIn({ setUser }) {
   return (
     <div>
       <div className="form-container" onSubmit={handleSubmit}>
-        <form autoComplete="off" >
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+        <form autoComplete="off">
+          <FormControl variant="outlined">
+            <InputLabel htmlFor="component-outlined">Email</InputLabel>
+            <OutlinedInput 
+              id="component-outlined"
+              label="Email" 
+              type="text" 
+              name="email" 
+              value={credentials.email} 
+              onChange={handleChange}
+              required 
+              />
+          </FormControl>
+          <FormControl variant="outlined">
+            <InputLabel htmlFor="component-outlined">Password</InputLabel>
+            <OutlinedInput 
+              label="Password" 
+              variant="outlined"
+              type="password" 
+              name="password" 
+              value={credentials.password} 
+              onChange={handleChange} 
+              required
+            />
+          </FormControl>
+          {/* <label>Email</label>
+          <input type="text" name="email" value={credentials.email} onChange={handleChange} required /> */}
+          {/* <label>Password</label>
+          <input type="password" name="password" value={credentials.password} onChange={handleChange} required /> */}
+          <Button variant="contained" color="secondary" type="submit">LOG IN</Button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
