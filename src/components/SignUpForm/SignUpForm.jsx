@@ -105,6 +105,10 @@ export default class SignUpForm extends Component {
             <Button variant="contained" color="secondary" type="submit" disabled={disable}>SIGN UP</Button>
           </form>
         </div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <span>Have an account already?</span>
         <p className="error-message">&nbsp;{this.state.error}</p>
       </div>
     );

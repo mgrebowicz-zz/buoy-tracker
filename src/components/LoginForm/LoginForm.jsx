@@ -65,6 +65,10 @@ export default function LogIn({ setUser }) {
           <input type="password" name="password" value={credentials.password} onChange={handleChange} required /> */}
           <Button variant="contained" color="secondary" type="submit">LOG IN</Button>
         </form>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <span>Don't have an account?</span>
       </div>
       <p className="error-message">&nbsp;{error}</p>
     </div>

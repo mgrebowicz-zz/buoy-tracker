@@ -29,9 +29,7 @@ export default function App() {
       <CssBaseline />
       <main className="App">
         { user ?
-            <>
-            
-            
+            <>         
               <NavBar user={user} setUser={setUser} />
               <Switch>
                 <Route path="/orders/new">
@@ -45,8 +43,7 @@ export default function App() {
             </>
           :
             <AuthPage setUser={setUser}/>
-        }
-          
+        }      
       </main>
     </ThemeProvider>
   );
