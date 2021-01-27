@@ -32,7 +32,7 @@ export default function App() {
             <>         
               <NavBar user={user} setUser={setUser} />
               <Switch>
-                <Route path="/buoys/add">
+                <Route path="/favorites">
                 <FavoriteBuoysPage user={user} setUser={setUser} />
                 </Route>
                 <Route path="/buoys">

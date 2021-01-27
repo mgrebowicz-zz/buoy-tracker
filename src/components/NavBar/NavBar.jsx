@@ -144,7 +144,7 @@ export default function NavBar({ user, setUser }) {
                 activeStyle={{ 
                   color: 'yellow' 
                 }} 
-                to="/buoys/add">Favorites
+                to="/favorites">Favorites
               </NavLink>
             </ListItem>          
             <ListItem button>
