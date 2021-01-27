@@ -45,7 +45,7 @@ export default function LogIn({ setUser }) {
               value={credentials.email} 
               onChange={handleChange}
               required 
-              />
+            />
           </FormControl>
           <FormControl variant="outlined">
             <InputLabel htmlFor="component-outlined">Password</InputLabel>
@@ -63,7 +63,7 @@ export default function LogIn({ setUser }) {
           <input type="text" name="email" value={credentials.email} onChange={handleChange} required /> */}
           {/* <label>Password</label>
           <input type="password" name="password" value={credentials.password} onChange={handleChange} required /> */}
-          <Button variant="contained" color="secondary" type="submit">LOG IN</Button>
+          <Button variant="contained" color="primary" type="submit">LOG IN</Button>
         </form>
         <div>&nbsp;</div>
         <div>&nbsp;</div>

@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
-import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -15,13 +15,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 
 const drawerWidth = 240;
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -82,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
 export default function NavBar({ user, setUser }) {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -91,12 +86,12 @@ export default function NavBar({ user, setUser }) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  
-  function handleLogOut() {
+
+  const handleLogOut = () => {
     userService.logOut();
     setUser(null);
-  }
-
+  };
+  
   return (
     <nav>
       <div className={classes.root}>
@@ -139,13 +134,31 @@ export default function NavBar({ user, setUser }) {
           <Divider />
           <List>            
             <ListItem button>
-              <NavLink exact activeStyle={{ backgroundColor: 'yellow' }} to="/orders/new">New Order</NavLink>    
+              <NavLink 
+              exact 
+              style={{ 
+                  color: "white", textDecoration: "none" 
+                }} 
+                activeStyle={{ 
+                  color: 'yellow' 
+                }} 
+                to="/orders/new">New Order
+              </NavLink>
             </ListItem>          
             <ListItem button>
-              <NavLink exact activeStyle={{ backgroundColor: 'yellow' }} to="/orders">Order History</NavLink>    
+              <NavLink 
+                exact 
+                style={{ 
+                  color: "white", textDecoration: "none" 
+                    }} 
+                activeStyle={{ 
+                  color: 'yellow' 
+                    }} 
+                to="/orders">Order History
+              </NavLink>    
             </ListItem>          
             <ListItem button>
-              <Link to="" onClick={handleLogOut}>Log Out</Link>    
+              <Link to="" style={{ color: "white", textDecoration: "none" }} onClick={handleLogOut}>Log Out</Link>    
             </ListItem>          
           </List>         
         </Drawer>
@@ -155,15 +168,8 @@ export default function NavBar({ user, setUser }) {
           })}
         >
           <div className={classes.drawerHeader} />
-          <Typography paragraph>
-            
-        </Typography>
-          <Typography paragraph>
-            
-        </Typography>
         </main>
       </div>
-
       <div>
         <span>Welcome, {user.name}</span>
       </div>
