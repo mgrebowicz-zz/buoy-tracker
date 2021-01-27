@@ -157,8 +157,20 @@ export default function NavBar({ user, setUser }) {
                   color: 'yellow' 
                     }} 
                 to="/buoys">Buoy Index
-              </NavLink>    
-            </ListItem>          
+              </NavLink>  
+            </ListItem> 
+            <ListItem>
+              <NavLink
+                exact
+                style={{
+                  color: "white", textDecoration: "none"
+                }}
+                activeStyle={{
+                  color: 'yellow'
+                }}
+                to="/about">About
+              </NavLink>  
+            </ListItem>         
             <ListItem button>
               <Link to="" style={{ color: "white", textDecoration: "none" }} onClick={handleLogOut}>Log Out</Link>    
             </ListItem>          

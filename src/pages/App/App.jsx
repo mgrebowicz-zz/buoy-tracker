@@ -5,6 +5,7 @@ import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import FavoriteBuoysPage from '../FavoriteBuoysPage/FavoriteBuoysPage';
 import BuoyIndexPage from '../BuoyIndexPage/BuoyIndexPage';
+import AboutPage from '../AboutPage/AboutPage';
 import NavBar from '../../components/NavBar/NavBar';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -32,6 +33,9 @@ export default function App() {
             <>         
               <NavBar user={user} setUser={setUser} />
               <Switch>
+              <Route path="/about">
+                <AboutPage />
+              </Route>
                 <Route path="/favorites">
                 <FavoriteBuoysPage user={user} setUser={setUser} />
                 </Route>
