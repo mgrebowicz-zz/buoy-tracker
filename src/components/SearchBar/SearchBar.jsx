@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import * as buoyAPI from '../../utilities/buoys-api';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import InputBase from '@material-ui/core/InputBase';
@@ -63,7 +65,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchBar() {
     const classes = useStyles();
-        
+    const [newBuoy, setNewBuoy] = useState('');
+
+    // function handleAddBuoy() {
+    //     alert(newBuoy);
+    // }
+
+    async function handleClick(value) {
+        try {
+            console.log(value)
+            // const buoy = {...this.newBuoy};
+            // console.log(buoy);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    
+
     return (
         <div className={classes.grow}>
             <Toolbar>
@@ -71,14 +89,18 @@ export default function SearchBar() {
                     <div className={classes.searchIcon}>
                         <SearchIcon />
                     </div>
+            
                     <InputBase
-                        placeholder="Search…"
+                        value={newBuoy}
+                        onChange={(evt) => setNewBuoy(evt.target.value)}
+                        // placeholder="Search…"
                         classes={{
                             root: classes.inputRoot,
                             input: classes.inputInput,
                         }}
                         inputProps={{ 'aria-label': 'search' }}
                     />
+                    <button value={newBuoy} onClick={() => handleClick(newBuoy)}>Search</button>
                 </div> 
             </Toolbar>
         </div>

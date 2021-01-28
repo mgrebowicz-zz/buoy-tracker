@@ -13,7 +13,13 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [buoy, setBuoy] = useState('');
+  const [showBuoy, setShowBouy] = useState(true);
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+  function addBuoy(buoy) {
+    // set
+  }
 
   const theme = React.useMemo(
     () =>
