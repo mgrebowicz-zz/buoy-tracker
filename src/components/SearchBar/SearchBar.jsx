@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import * as buoys from '../../controllers/buoys'
+import * as buoysApi from '../../utilities/buoys-api'
 import { fade, makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import InputBase from '@material-ui/core/InputBase';
@@ -67,9 +67,9 @@ export default function SearchBar() {
     const classes = useStyles();
     const [newBuoy, setNewBuoy] = useState('');
 
-    async function handleSubmit(value) {
+    async function handleSubmit() {
         try {
-            const buoy = value;
+            const buoy = await buoysAPI.getBuoyById(newBuoy);
             console.log(buoy);
         } catch (err) {
             console.log(err);
