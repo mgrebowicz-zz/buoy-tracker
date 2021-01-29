@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as buoyAPI from '../../utilities/buoys-api';
+// import * as buoys from '../../controllers/buoys'
 import { fade, makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import InputBase from '@material-ui/core/InputBase';
@@ -67,21 +67,23 @@ export default function SearchBar() {
     const classes = useStyles();
     const [newBuoy, setNewBuoy] = useState('');
 
-    // function handleAddBuoy() {
-    //     alert(newBuoy);
-    // }
-
-    async function handleClick(value) {
+    async function handleSubmit(value) {
         try {
-            console.log(value)
-            // const buoy = {...this.newBuoy};
-            // console.log(buoy);
+            const buoy = value;
+            console.log(buoy);
         } catch (err) {
             console.log(err);
         }
     };
-    
 
+    // refactor for KeyPress submit
+    // const handleKeypress = e => {
+    //     //it triggers by pressing the enter key
+    //     if (e.keyCode === 13) {
+    //         btn.click();
+    //     }
+    // };
+    
     return (
         <div className={classes.grow}>
             <Toolbar>
@@ -91,8 +93,10 @@ export default function SearchBar() {
                     </div>
             
                     <InputBase
+                        // type='submit'
                         value={newBuoy}
                         onChange={(evt) => setNewBuoy(evt.target.value)}
+                        // onKeyPress={handleKeypress}
                         // placeholder="Search…"
                         classes={{
                             root: classes.inputRoot,
@@ -100,7 +104,7 @@ export default function SearchBar() {
                         }}
                         inputProps={{ 'aria-label': 'search' }}
                     />
-                    <button value={newBuoy} onClick={() => handleClick(newBuoy)}>Search</button>
+                    <button value={newBuoy} onClick={() => handleSubmit(newBuoy)}>Search</button>
                 </div> 
             </Toolbar>
         </div>

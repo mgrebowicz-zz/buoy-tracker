@@ -9,7 +9,6 @@ export function getBuoyById(stationId) {
     return sendRequest(`${BASE_URL}/` + stationId + apikey);
 };
 
-
 // export async function getBuoyById(stationId) {
 //     let url = BASE_URL + stationId + apikey
 //     let response = await fetch(url);

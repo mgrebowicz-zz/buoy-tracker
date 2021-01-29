@@ -3,10 +3,6 @@ module.exports = {
 }
 
 async function show(req, res) {
-    try {
-        const buoy = await buoyAPI.getBuoyById(req.params);
-        console.log(buoy);
-    } catch (err) {
-         console.log(err);
-    }
+    const buoy = await buoyAPI.getBuoyById(req.params);
+    res.json(buoy)   
 }
