@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useHistory } from 'react';
 import * as buoysAPI from '../../utilities/buoys-api'
 import { fade, makeStyles } from '@material-ui/core/styles';
 import BuoyDetailPage from '../../pages/BuoyDetailPage/BuoyDetailPage';
@@ -66,16 +66,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchBar() {
     const classes = useStyles();
-    const [newBuoy, setNewBuoy] = useState('');
-
+    const [newBuoy, setNewBuoy] = useState([]);
+    
     async function handleSubmit() {
         try {
             const buoy = await buoysAPI.getBuoy(newBuoy);
-            console.log(buoy);
+            setNewBuoy(buoy);
+            // console.log(newBuoy)
         } catch (err) {
             console.log(err);
         }
     };
+
+    
 
     // refactor for KeyPress submit
     // const handleKeypress = e => {
@@ -104,9 +107,8 @@ export default function SearchBar() {
                         }}
                         inputProps={{ 'aria-label': 'search' }}
                     />
-                    
                     <button value={newBuoy} onClick={() => handleSubmit(newBuoy)}>Search</button>
-                </div> 
+                </div>
             </Toolbar>
         </div>
     );

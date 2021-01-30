@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import * as buoysAPI from '../../utilities/buoys-api'
 import BuoyDetailPage from '../BuoyDetailPage/BuoyDetailPage';
 import FavoriteBuoysPage from '../FavoriteBuoysPage/FavoriteBuoysPage';
 import BuoyIndexPage from '../BuoyIndexPage/BuoyIndexPage';
@@ -15,13 +16,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const [buoy, setBuoy] = useState('');
-  const [showBuoy, setShowBouy] = useState(true);
+  const [newBuoy, setNewBuoy] = useState('');
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
-  function addBuoy(buoy) {
-    // set
-  }
+  useEffect(() => {
+    console.log('hello world');
+  }, []);
 
   const theme = React.useMemo(
     () =>
@@ -39,21 +39,19 @@ export default function App() {
       <main className="App">
         { user ?
             <>         
-              <NavBar user={user} setUser={setUser} />              
-              <Switch>
+              <NavBar user={user} setUser={setUser} newBuoy={newBuoy} setNewBuoy={setNewBuoy} />              
               <Route path="/about">
                 <AboutPage />
               </Route>
-                <Route path="/favorites">
+              <Route path="/favorites">
                 <FavoriteBuoysPage user={user} setUser={setUser} />
-                </Route>
-                <Route path="/buoys">
-                  <BuoyIndexPage />
-                </Route>
-                <Redirect to="/buoys" />
-              </Switch>
-              <Route path='buoys/id' exact component={BuoyDetailPage}/>
-            
+              </Route>
+              <Route path="/buoys">
+                <BuoyIndexPage />
+              </Route>
+              <Route path="/details">
+                <BuoyDetailPage newBuoy={newBuoy} setNewBuoy={setNewBuoy} />
+              </Route>
             </>
           :
             <AuthPage setUser={setUser}/>

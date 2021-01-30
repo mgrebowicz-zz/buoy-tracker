@@ -25,7 +25,7 @@ export default function BuoyCard() {
                     component="img"
                     alt="BuoyImage"
                     height="140"
-                    image="/static/images/buoy.jpg"
+                    // image="/static/images/buoy.jpg"
                     title="BuoyImage"
                 />
                 <CardContent>

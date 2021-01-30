@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavBar({ user, setUser }) {
+export default function NavBar({ user, setUser, newBuoy, setNewBuoy }) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
@@ -116,7 +116,7 @@ export default function NavBar({ user, setUser }) {
             <Typography variant="h6" noWrap>
               Buoy Tracker
             </Typography>
-            <SearchBar />
+            <SearchBar newBuoy={newBuoy} setNewBuoy={setNewBuoy} />
           </Toolbar>
         </AppBar>
         <Drawer
