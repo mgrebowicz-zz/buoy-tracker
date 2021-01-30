@@ -3,6 +3,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import BuoyDetailPage from '../BuoyDetailPage/BuoyDetailPage';
 import FavoriteBuoysPage from '../FavoriteBuoysPage/FavoriteBuoysPage';
 import BuoyIndexPage from '../BuoyIndexPage/BuoyIndexPage';
 import AboutPage from '../AboutPage/AboutPage';
@@ -37,7 +39,7 @@ export default function App() {
       <main className="App">
         { user ?
             <>         
-              <NavBar user={user} setUser={setUser} />
+              <NavBar user={user} setUser={setUser} />              
               <Switch>
               <Route path="/about">
                 <AboutPage />
@@ -50,6 +52,8 @@ export default function App() {
                 </Route>
                 <Redirect to="/buoys" />
               </Switch>
+              <Route path='buoys/id' exact component={BuoyDetailPage}/>
+            
             </>
           :
             <AuthPage setUser={setUser}/>

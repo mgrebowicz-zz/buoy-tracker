@@ -18,7 +18,7 @@ export default function BuoyCard() {
     const classes = useStyles();
 
     return (
-       <Link to="/favorites"> 
+       <Link to="/buoys/:id"> 
         <Card className={classes.root}>
             <CardActionArea>
                 <CardMedia
@@ -38,13 +38,12 @@ export default function BuoyCard() {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Link to='/favorites'>
-                <Button size="small" color="secondary">
+                    <Button size="small" color="secondary">
                     Add to Favorites
                 </Button>
-                </Link>                
+                {/* </Link>                 */}
             </CardActions>
         </Card>
-        </Link>
+        /</Link> 
     );
 }

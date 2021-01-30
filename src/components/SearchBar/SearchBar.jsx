@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import * as buoysApi from '../../utilities/buoys-api'
+import * as buoysAPI from '../../utilities/buoys-api'
 import { fade, makeStyles } from '@material-ui/core/styles';
+import BuoyDetailPage from '../../pages/BuoyDetailPage/BuoyDetailPage';
 import Toolbar from '@material-ui/core/Toolbar';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
@@ -11,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     },
     menuButton: {
         marginRight: theme.spacing(2),
-    },
+    }, 
     title: {
         display: 'none',
         [theme.breakpoints.up('sm')]: {
@@ -69,7 +70,7 @@ export default function SearchBar() {
 
     async function handleSubmit() {
         try {
-            const buoy = await buoysAPI.getBuoyById(newBuoy);
+            const buoy = await buoysAPI.getBuoy(newBuoy);
             console.log(buoy);
         } catch (err) {
             console.log(err);
@@ -91,7 +92,6 @@ export default function SearchBar() {
                     <div className={classes.searchIcon}>
                         <SearchIcon />
                     </div>
-            
                     <InputBase
                         // type='submit'
                         value={newBuoy}
@@ -104,6 +104,7 @@ export default function SearchBar() {
                         }}
                         inputProps={{ 'aria-label': 'search' }}
                     />
+                    
                     <button value={newBuoy} onClick={() => handleSubmit(newBuoy)}>Search</button>
                 </div> 
             </Toolbar>
