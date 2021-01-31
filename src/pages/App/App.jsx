@@ -19,9 +19,9 @@ export default function App() {
   const [newBuoy, setNewBuoy] = useState('');
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
-  useEffect(() => {
-    console.log('hello world');
-  }, []);
+  // useEffect(() => {
+  //   console.log('hello world');
+  // }, []);
 
   const theme = React.useMemo(
     () =>
@@ -38,8 +38,12 @@ export default function App() {
       <CssBaseline />
       <main className="App">
         { user ?
-            <>         
+            <>  
+              <Redirect to="/buoys" />       
               <NavBar user={user} setUser={setUser} newBuoy={newBuoy} setNewBuoy={setNewBuoy} />              
+              <div className='search'>
+                <SearchBar/>
+              </div>
               <Route path="/about">
                 <AboutPage />
               </Route>
@@ -49,8 +53,9 @@ export default function App() {
               <Route path="/buoys">
                 <BuoyIndexPage />
               </Route>
+            
               <Route path="/details">
-                <BuoyDetailPage newBuoy={newBuoy} setNewBuoy={setNewBuoy} />
+                <BuoyDetailPage />
               </Route>
             </>
           :
