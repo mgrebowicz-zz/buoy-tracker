@@ -34,6 +34,27 @@ export default function BuoyCard() {
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
                         GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
+                        GPS Coordinates
                     </Typography>
                 </CardContent>
             </CardActionArea>

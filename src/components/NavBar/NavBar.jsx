@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavBar({ user, setUser, newBuoy, setNewBuoy }) {
+export default function NavBar({ user, setUser }) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
