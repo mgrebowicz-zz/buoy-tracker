@@ -74,19 +74,10 @@ export default function SearchBar() {
         try {
             const buoy = await buoysAPI.getBuoy(newBuoy);
             setNewBuoy(buoy);
-            // console.log(newBuoy)
         } catch (err) {
             console.log(err);
         }
     };
-
-    // refactor for KeyPress submit
-    // const handleKeypress = e => {
-    //     //it triggers by pressing the enter key
-    //     if (e.keyCode === 13) {
-    //         btn.click();
-    //     }
-    // };
 
     const resetState = () => {
         setNewBuoy('');
@@ -117,12 +108,12 @@ export default function SearchBar() {
                             }}
                             inputProps={{ 'aria-label': 'search' }}
                         />
-                    <Button 
-                        variant="contained" 
-                        value={newBuoy} 
-                        onClick={() => handleSubmit(newBuoy)}
-                        >Search
-                    </Button>
+                        <Button 
+                            variant="contained" 
+                            value={newBuoy} 
+                            onClick={() => handleSubmit(newBuoy)}
+                            >Search
+                        </Button>
                     </div>
                 </Toolbar>
             </div> }

@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 
 export default function BuoyCard() {
     const classes = useStyles();
-
+    
     return (
        <Link to="/buoys"> 
         <Card className={classes.root}>
@@ -33,28 +33,7 @@ export default function BuoyCard() {
                         Buoy Name and Station Number
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
-                        GPS Coordinates
+                        GPS Location
                     </Typography>
                 </CardContent>
             </CardActionArea>

@@ -5,7 +5,3 @@ const BASE_URL = '/api/buoys';
 export function getBuoy(stationId) { 
     return sendRequest(`${BASE_URL}/` + stationId);
 };
-
-export function getBuoyDetail(stationId) {
-    return sendRequest(`${BASE_URL}/` + stationId);
-}

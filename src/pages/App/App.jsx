@@ -18,11 +18,7 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [newBuoy, setNewBuoy] = useState('');
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
-  // useEffect(() => {
-  //   console.log('hello world');
-  // }, []);
-
+  
   const theme = React.useMemo(
     () =>
       createMuiTheme({
@@ -55,7 +51,7 @@ export default function App() {
               </Route>
             
               <Route path="/details">
-                <BuoyDetailPage />
+              <BuoyDetailPage setNewBuoy={setNewBuoy} />
               </Route>
             </>
           :
