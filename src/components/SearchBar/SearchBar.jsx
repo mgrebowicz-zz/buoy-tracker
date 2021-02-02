@@ -79,11 +79,7 @@ export default function SearchBar() {
             console.log(err);
         }
     };
-
-    const resetState = () => {
-        setNewBuoy('');
-    };
-    
+ 
     return (
         <>
         {typeof newBuoy === 'object' ?

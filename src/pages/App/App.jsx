@@ -51,7 +51,7 @@ export default function App() {
               </Route>
             
               <Route path="/details">
-              <BuoyDetailPage setNewBuoy={setNewBuoy} />
+              <BuoyDetailPage newBuoy={newBuoy} setNewBuoy={setNewBuoy} />
               </Route>
             </>
           :
