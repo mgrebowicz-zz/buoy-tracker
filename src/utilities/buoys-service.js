@@ -1,13 +1,5 @@
 
-/**
- * Flatten a multidimensional object
- *
- * For example:
- *   flattenObject({ a: 1, b: { c: 2 } })
- * Returns:
- *   { a: 1, c: 2}
- */
-
+//Necessary to 
  export const flattenObject = (obj) => {
     const flattened = {};
 

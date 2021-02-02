@@ -74,6 +74,7 @@ export default function SearchBar() {
         try {
             const buoy = await buoysAPI.getBuoy(newBuoy);
             setNewBuoy(buoy);
+            console.log(buoy);
         } catch (err) {
             console.log(err);
         }
@@ -85,7 +86,7 @@ export default function SearchBar() {
     
     return (
         <>
-        {newBuoy.entries ?
+        {typeof newBuoy === 'object' ?
                 <>
                     <div>&nbsp;</div> 
                     <NavLink to={{ pathname: '/details', state: { buoy: newBuoy } }} style={{color: "white", textDecoration: "none"}}>

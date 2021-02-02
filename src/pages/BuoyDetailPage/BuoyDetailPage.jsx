@@ -16,12 +16,12 @@ const useStyles = makeStyles({
 
 export default function BuoyDetailPage({ setNewBuoy }) {
     const { state : {buoy} } = useLocation();
+    console.log(useLocation().state)
     const classes = useStyles();
     
     const resetState = () => {
         setNewBuoy('');
     };
-    
     
     //need to reformat, add buoy services module for business logic
     return (
@@ -29,42 +29,31 @@ export default function BuoyDetailPage({ setNewBuoy }) {
             <h1>Buoy Detail Page</h1>
             <div className='card-container'>
                 <Card className={classes.root}>
-                    {buoy.entries.map((entry, i) => {
-                        return (
-                            <>
-                            
-                                <div key={i}>Station ID: {entry.classifiers.station}</div>  
-                                <div key={i}>Latitude: {entry.axes.latitude.toFixed(2)}</div>
-                                <div key={i}>Longitude: {entry.axes.longitude.toFixed(2)}</div>
-                                <div key={i}>Time of Observation: {entry.axes.time}</div>
-                                
-                                <div key={i}>Barometric Pressure: {entry.data.air_pressure.toFixed(2)} mb</div>
-                                <div key={i}>Wind Speed: {Math.floor(entry.data.wind_spd)} kts</div>
-                                <div key={i}>Wind Direction: {entry.data.wind_dir} degrees</div>
-                                <div key={i}>Gusts: {Math.floor(entry.data.wind_spd)} kts</div>
-                                <div key={i}>Sea Surface Temperature: {Math.floor(entry.data.sea_surface_temperature)} degrees C</div>
-                                <div key={i}>Wave Height: {entry.data.wave_height} meters</div>
-                                <div key={i}>Dominant Wave Period: {entry.data.dominant_wpd} kts</div>
-                                <div key={i}>Mean Wave Direction: {entry.data.mean_wave_dir} degrees </div>
-                                
-                            </>
-                        )
-                    })}
+                    <div>Station ID: {buoy['node:station']}</div>
+                    <div>Latitude: {buoy['latitude'].toFixed(2)}</div>
+                    <div>Longitude: {buoy['longitude'].toFixed(2)}</div>
+                    <div>Time of Observation: {buoy['timeMax']}</div>
+                    <div>Barometric Pressure: {buoy['air_pressure'].toFixed(2)} mb</div>
+                    <div>Wind Speed: {buoy['wind_spd'].toFixed(2)} kts</div>
+                    <div>Wind Direction: {buoy['wind_dir']}</div>
+                    <div>Gusts: {buoy['gust']} kts</div>
+                    <div>Sea Surface Temp: {buoy['sea_surface_temperature'].toFixed(2)} C</div>
+                    <div>Wave Height: {buoy['wave_height'].toFixed(2)} meters</div>
+                    <div>Dominant Wave Period: {buoy['dominant_wpd'].toFixed(2)} seconds</div>
                     <div className='button-container'>
-                    <Button size="small" color="primary" variant="contained">
-                        Add to Favorites
-                    </Button>
-                    <Button 
-                        size="small" 
-                        color="secondary" 
-                        variant="contained"
-                        onClick={resetState}
-                        >Cancel
-                    </Button>
+                        <Button size="small" color="primary" variant="contained">
+                            Add to Favorites
+                        </Button>
+                        <Button 
+                            size="small" 
+                            color="secondary" 
+                            variant="contained"
+                            onClick={resetState}
+                            >Cancel
+                        </Button>
                     </div>
                 </Card>
-            </div>
-          
+            </div>          
         </>
     )
 
