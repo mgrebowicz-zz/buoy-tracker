@@ -3,7 +3,7 @@
 export default function FavoriteBuoysPage() {
   return (
   <div>
-    <h1>Favorite buoys</h1>
+    <h1>Favorite Buoys</h1>
   </div>
   )
 }

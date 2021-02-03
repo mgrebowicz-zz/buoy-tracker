@@ -1,8 +1,8 @@
 export default function AboutPage() {
     return(
         <div>
-            <h1>This is the AboutPage</h1>
-            <p>Buoy Tracker was developed by Michael Grebowicz</p>
+            <h1>About BuoyTracker</h1>
+            <h3>Buoy Tracker was developed by Michael Grebowicz</h3>
         </div>    
     )
 }

@@ -66,14 +66,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SearchBar() {
+export default function SearchBar({newBuoy, setNewBuoy}) {
     const classes = useStyles();
-    const [newBuoy, setNewBuoy] = useState('');
+    const [search, setSearch] = useState('');
     
     async function handleSubmit() {
         try {
-            const buoy = await buoysAPI.getBuoy(newBuoy);
+            const buoy = await buoysAPI.getBuoy(search);
             setNewBuoy(buoy);
+            setSearch('');
             console.log(buoy);
         } catch (err) {
             console.log(err);
@@ -82,7 +83,7 @@ export default function SearchBar() {
  
     return (
         <>
-        {typeof newBuoy === 'object' ?
+        {newBuoy ?
                 <>
                     <div>&nbsp;</div> 
                     <NavLink to={{ pathname: '/details', state: { buoy: newBuoy } }} style={{color: "white", textDecoration: "none"}}>
@@ -97,8 +98,8 @@ export default function SearchBar() {
                             <SearchIcon />
                         </div>
                         <InputBase
-                            value={newBuoy}
-                            onChange={(evt) => setNewBuoy(evt.target.value)}
+                            value={search}
+                            onChange={(evt) => setSearch(evt.target.value)}
                             classes={{
                                 root: classes.inputRoot,
                                 input: classes.inputInput,
@@ -107,8 +108,8 @@ export default function SearchBar() {
                         />
                         <Button 
                             variant="contained" 
-                            value={newBuoy} 
-                            onClick={() => handleSubmit(newBuoy)}
+                            value={search} 
+                            onClick={() => handleSubmit()}
                             >Search
                         </Button>
                     </div>

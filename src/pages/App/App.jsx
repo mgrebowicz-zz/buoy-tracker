@@ -4,7 +4,6 @@ import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import * as buoysAPI from '../../utilities/buoys-api'
 import BuoyDetailPage from '../BuoyDetailPage/BuoyDetailPage';
 import FavoriteBuoysPage from '../FavoriteBuoysPage/FavoriteBuoysPage';
 import BuoyIndexPage from '../BuoyIndexPage/BuoyIndexPage';
@@ -16,7 +15,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const [newBuoy, setNewBuoy] = useState('');
+  const [newBuoy, setNewBuoy] = useState(null);
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   
   const theme = React.useMemo(
@@ -35,11 +34,9 @@ export default function App() {
       <main className="App">
         { user ?
             <>  
-              <Redirect to="/buoys" />       
-              <NavBar user={user} setUser={setUser} newBuoy={newBuoy} setNewBuoy={setNewBuoy} />              
-              <div className='search'>
-                <SearchBar/>
-              </div>
+            <NavBar user={user} setUser={setUser} />              
+            <SearchBar newBuoy={newBuoy} setNewBuoy={setNewBuoy}/>
+            <Switch>
               <Route path="/about">
                 <AboutPage />
               </Route>
@@ -49,10 +46,11 @@ export default function App() {
               <Route path="/buoys">
                 <BuoyIndexPage />
               </Route>
-            
               <Route path="/details">
-              <BuoyDetailPage newBuoy={newBuoy} setNewBuoy={setNewBuoy} />
+                <BuoyDetailPage newBuoy={newBuoy} setNewBuoy={setNewBuoy} />
               </Route>
+              <Redirect to="/buoys" />
+            </Switch>      
             </>
           :
             <AuthPage setUser={setUser}/>

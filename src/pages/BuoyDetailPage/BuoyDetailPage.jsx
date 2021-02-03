@@ -9,16 +9,12 @@ const useStyles = makeStyles({
     root: {
         maxWidth: 345,
         padding: "4vmin",
+        opacity: 0.9
     },
 });
 
 export default function BuoyDetailPage({ newBuoy, setNewBuoy }) {
-    const { state : {buoy} } = useLocation();
     const classes = useStyles();
-    
-    const resetState = () => {
-        setNewBuoy({ newBuoy: '' });
-    };
     
     //need to reformat, add buoy services module for business logic
 
@@ -27,50 +23,68 @@ export default function BuoyDetailPage({ newBuoy, setNewBuoy }) {
             <h1>Buoy Detail Page</h1>
             <div className='card-container'>
                 <Card className={classes.root}>
-                    <h2>Station ID: {buoy['node:station']}</h2>
-                    {buoy['latitude'] ? 
-                        <div>Latitude: {buoy['latitude'].toFixed(2)}</div>
+                    <h2>Station ID: {newBuoy['node:station']}</h2>
+                    {newBuoy['latitude'] ? 
+                        <div>Latitude: {newBuoy['latitude'].toFixed(2)}</div>
                         :
                         <div></div>
                         }
-                    {buoy['longitude'] ? 
-                        <div>Longitude: {buoy['longitude'].toFixed(2)}</div>
+                    {newBuoy['longitude'] ? 
+                        <div>Longitude: {newBuoy['longitude'].toFixed(2)}</div>
                         :
                         <div></div>
                         }
-                    <div>Time of Observation: {buoy['timeMax']}</div>
-                    {buoy['air_pressure'] ? 
-                        <div>Barometric Pressure: {buoy['air_pressure'].toFixed(2)} mb</div>
+                    
+                    {newBuoy['timeMax'] ?
+                        <div>Time of Observation: {newBuoy['timeMax']}</div>
                         :
                         <div></div>
                     }
-                    <div>Wind Direction: {buoy['wind_dir']}</div>
-                    <div>Gusts: {buoy['gust']} kts</div>
-                    {buoy['sea_surface_temperature'] ? 
-                        <div>Sea Surface Temp: {buoy['sea_surface_temperature'].toFixed(2)} C</div>
+                    
+                    
+                    
+                    {newBuoy['air_pressure'] ? 
+                        <div>Barometric Pressure: {newBuoy['air_pressure'].toFixed(2)} mb</div>
+                        :
+                        <div></div>
+                    }
+                    
+                    {newBuoy['wind_dir'] ?
+                        <div>Wind Direction: {newBuoy['wind_dir']}</div>
+                        :
+                        <div></div>
+                    }
+
+                    {newBuoy['gust'] ?
+                        <div>Gusts: {newBuoy['gust'].toFixed(2)}</div>
+                        :
+                        <div></div>
+                    }
+                    {newBuoy['sea_surface_temperature'] ? 
+                        <div>Sea Surface Temp: {newBuoy['sea_surface_temperature'].toFixed(2)} C</div>
                         :
                         <div></div>
                         }
-                    {buoy['wave_height'] ? 
-                        <div>Wave Height: {buoy['wave_height'].toFixed(2)} meters</div>
+                    {newBuoy['wave_height'] ? 
+                        <div>Wave Height: {newBuoy['wave_height'].toFixed(2)} meters</div>
                         :
                         <div></div>
                         }
-                    {buoy['dominant_wpd'] ? 
-                        <div>Dominant Wave Period: {buoy['dominant_wpd'].toFixed(2)} seconds</div>
+                    {newBuoy['dominant_wpd'] ? 
+                        <div>Dominant Wave Period: {newBuoy['dominant_wpd'].toFixed(2)} seconds</div>
                         :
                         <div></div>
                         }
                     <div className='button-container'>
-                        <Button size="small" color="primary" variant="contained">
+                        {/* <Button size="small" color="primary" variant="contained">
                             Add to Favorites
-                        </Button>
+                        </Button> */}
                         <NavLink to="/bouys" style={{ color: "white", textDecoration: "none" }}>
                             <Button 
                                 size="small" 
                                 color="secondary" 
                                 variant="contained"
-                                onClick={resetState}
+                                onClick={() => setNewBuoy(null)}
                                 >Cancel
                             </Button>
                         </NavLink>
