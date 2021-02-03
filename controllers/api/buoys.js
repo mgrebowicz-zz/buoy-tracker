@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const BASE_URL = 'http://api.planetos.com/v1/datasets/noaa_ndbc_stdmet_stations/stations/';
+const BASE_URL = 'https://api.planetos.com/v1/datasets/noaa_ndbc_stdmet_stations/stations/';
 const apikey = process.env.REACT_APP_PLANET_OS_KEY;
 
 module.exports = {
