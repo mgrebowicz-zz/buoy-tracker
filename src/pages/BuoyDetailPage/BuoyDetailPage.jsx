@@ -41,8 +41,6 @@ export default function BuoyDetailPage({ newBuoy, setNewBuoy }) {
                         <div></div>
                     }
                     
-                    
-                    
                     {newBuoy['air_pressure'] ? 
                         <div>Barometric Pressure: {newBuoy['air_pressure'].toFixed(2)} mb</div>
                         :
