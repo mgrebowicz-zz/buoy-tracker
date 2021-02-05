@@ -74,9 +74,9 @@ export default function BuoyDetailPage({ newBuoy, setNewBuoy }) {
                         <div></div>
                         }
                     <div className='button-container'>
-                        {/* <Button size="small" color="primary" variant="contained">
+                        <Button size="small" color="primary" variant="contained">
                             Add to Favorites
-                        </Button> */}
+                        </Button>
                         <NavLink to="/bouys" style={{ color: "white", textDecoration: "none" }}>
                             <Button 
                                 size="small" 
