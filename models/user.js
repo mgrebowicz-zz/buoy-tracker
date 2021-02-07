@@ -8,8 +8,8 @@ SALT_ROUNDS = 6;
 //Icebox - add location property using mongoose GeoJSON
 
 const favoriteBuoySchema = new Schema({
-  stationId: {type: Number},
-  user: { type: Schema.Types.ObjectId, ref: 'User' },
+  stationId: {type: String},
+  // user: { type: Schema.Types.ObjectId, ref: 'User' },
 }, {
   timestamps: true,
   toJSON: { virtuals: true }

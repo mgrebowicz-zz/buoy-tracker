@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { NavLink, Link } from 'react-router-dom';
+import * as favoritesAPI from '../../utilities/favorites-api';
 import './BuoyDetailPage.css'
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -13,9 +14,31 @@ const useStyles = makeStyles({
     },
 });
 
+
+
+// async function handleSubmit() {
+//     try {
+//         const buoy = await buoysAPI.getBuoy(search);
+//         setNewBuoy(buoy);
+//         setSearch('');
+//         console.log(buoy);
+//     } catch (err) {
+//         console.log(err);
+//     }
+// };
+
 export default function BuoyDetailPage({ newBuoy, setNewBuoy }) {
     const classes = useStyles();
     
+    async function handleAddFavorite(newBuoy) {
+        try {
+            const newFavoriteBuoy = await favoritesAPI.addFavorite(newBuoy);
+            // setPuppies([...puppies, newPuppy]);
+            console.log(newFavoriteBuoy)
+        } catch (err) {
+            console.log(err);
+        }
+    }
     //need to reformat, add buoy services module for business logic
 
     return (
@@ -74,8 +97,12 @@ export default function BuoyDetailPage({ newBuoy, setNewBuoy }) {
                         <div></div>
                         }
                     <div className='button-container'>
-                        <Button size="small" color="primary" variant="contained">
-                            Add to Favorites
+                        <Button 
+                            size="small" 
+                            color="primary" 
+                            variant="contained"
+                            onClick={() => handleAddFavorite(newBuoy['node:station'])}
+                            >Add to Favorites
                         </Button>
                         <NavLink to="/bouys" style={{ color: "white", textDecoration: "none" }}>
                             <Button 
