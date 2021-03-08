@@ -14,31 +14,19 @@ const useStyles = makeStyles({
     },
 });
 
-
-
-// async function handleSubmit() {
-//     try {
-//         const buoy = await buoysAPI.getBuoy(search);
-//         setNewBuoy(buoy);
-//         setSearch('');
-//         console.log(buoy);
-//     } catch (err) {
-//         console.log(err);
-//     }
-// };
-
 export default function BuoyDetailPage({ newBuoy, setNewBuoy }) {
     const classes = useStyles();
     
     async function handleAddFavorite(newBuoy) {
         try {
             const newFavoriteBuoy = await favoritesAPI.addFavorite(newBuoy);
-            // setPuppies([...puppies, newPuppy]);
+            
             console.log(newFavoriteBuoy)
         } catch (err) {
             console.log(err);
         }
     }
+    
     //need to reformat, add buoy services module for business logic
 
     return (

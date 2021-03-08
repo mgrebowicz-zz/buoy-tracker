@@ -116,7 +116,6 @@ export default function NavBar({ user, setUser }) {
             <Typography variant="h6" noWrap>
               Buoy Tracker
             </Typography>
-            {/* <SearchBar newBuoy={newBuoy} setNewBuoy={setNewBuoy} /> */}
           </Toolbar>
         </AppBar>
         <Drawer
