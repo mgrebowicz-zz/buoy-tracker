@@ -85,13 +85,15 @@ export default function BuoyDetailPage({ newBuoy, setNewBuoy }) {
                         <div></div>
                         }
                     <div className='button-container'>
-                        <Button 
-                            size="small" 
-                            color="primary" 
-                            variant="contained"
-                            onClick={() => handleAddFavorite(newBuoy['node:station'])}
-                            >Add to Favorites
-                        </Button>
+                        <NavLink to="/favorites" style={{ color: "white", textDecoration: "none" }}>
+                            <Button 
+                                size="small" 
+                                color="primary" 
+                                variant="contained"
+                                onClick={() => handleAddFavorite(newBuoy['node:station'])}
+                                >Add to Favorites
+                            </Button>
+                        </NavLink>
                         <NavLink to="/bouys" style={{ color: "white", textDecoration: "none" }}>
                             <Button 
                                 size="small" 

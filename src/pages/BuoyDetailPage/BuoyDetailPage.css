@@ -14,7 +14,7 @@
     display: flex;
     flex-flow: row wrap;
     padding: 2vmin;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .button-container {
